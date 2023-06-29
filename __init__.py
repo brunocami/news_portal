@@ -7,7 +7,7 @@ from flask_cors import CORS
 import requests
 
 try:
-  client = pymongo.MongoClient(Config.MONGO.MONGO_URI)
+  client = pymongo.MongoClient(Config.MONGO.MONGO_URI,connectTimeoutMS=30000, socketTimeoutMS=None, connect=False, maxPoolsize=1)
   
 # return a friendly error if a URI error is thrown 
 except pymongo.errors.ConfigurationError:
